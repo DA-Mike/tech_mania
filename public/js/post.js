@@ -48,12 +48,13 @@ const saveButtonHandler = async (event) => {
   $(editBtn).show();
 
   const post_text = $(newTextEl).val().toString();
-  //   console.log('newtext', newText);
+  console.log('posttext', typeof post_text);
 
   $(postText).appendTo(postTextContainer);
 
   $(postText).show();
-  $(postText).val('dom test');
+  // $(postText).val('dom test');
+  postText[0].textContent = post_text;
 
   $(newTextContainer).remove();
 
@@ -65,7 +66,7 @@ const saveButtonHandler = async (event) => {
     },
   });
   if (response.ok) {
-    document.location.replace(`/api/post/${id}`);
+    document.location.reload(); //(`/api/post/${id}`);
   } else {
     alert('Failed to create post');
   }
@@ -80,7 +81,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      //   document.location.replace('/dashboard');
+      document.location.replace(`/dashboard`);
     } else {
       alert('Failed to delete post');
     }
