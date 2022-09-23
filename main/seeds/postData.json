@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Object-Relational Mapping",
+    "post_text": "ORMs are great! It's a great way to link up the back end to the front end."
+  },
+  {
+    "title": "Handlebars",
+    "post_text": "I love the flexibility and programability that handlebars offers!"
+  },
+  {
+    "title": "React",
+    "post_text": "Does anyone know what this is?"
+  }
+]

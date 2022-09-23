@@ -1,0 +1,158 @@
+header,
+.project:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+
+body {
+  background-color: rgb(192, 231, 241);
+  color: black;
+}
+
+.no-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #1b89bc;
+  text-decoration: none;
+  font-size: 100%;
+}
+
+.no-button:hover {
+  color: #065b83;
+  text-decoration: underline;
+}
+
+.dollar-amount {
+  color: #056605;
+  font-weight: bold;
+  margin-left: -5px;
+}
+
+.title-tag {
+  margin-top: 2rem;
+  margin-left: 3.5rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 0.5rem;
+  width: fit-content;
+  color: black;
+  background-color: rgb(192, 231, 241);
+  box-shadow: 5px 5px rgb(134, 158, 164);
+}
+
+.title-text {
+  color: black;
+}
+
+.nav-bar {
+  margin-left: 2rem;
+}
+
+.nav-item {
+  margin-left: 1.5rem;
+  font-size: larger;
+  font-weight: bold;
+  color: rgb(192, 231, 241);
+}
+
+.header-bar {
+  background-color: black;
+}
+
+.author {
+  text-align: right;
+}
+
+.post-title {
+  max-width: fit-content;
+  color: rgb(192, 231, 241);
+  padding-top: 1%;
+}
+
+.post-title-container {
+  color: rgb(192, 231, 241);
+  background-color: black;
+  outline: 2px solid black;
+}
+
+.post {
+  border: 2px solid black;
+}
+
+/* .post-container {
+  border: 2px solid black;
+} */
+
+.author-container {
+  vertical-align: middle;
+  padding: 1%;
+}
+
+.post-text {
+  padding: 1rem;
+}
+
+.comment-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid black;
+  width: 100%;
+}
+
+.comment-header {
+  height: 3rem;
+  background-color: black;
+  outline: 2px solid black;
+}
+
+.comment-text {
+  margin-left: 3rem;
+  margin-top: 2rem;
+}
+
+.comment-author {
+  margin-left: 3rem;
+}
+
+.save-btn {
+  display: none;
+}
+
+.dash-title {
+  float: left;
+  color: white;
+  vertical-align: middle;
+  margin-top: 0.5rem;
+}
+
+.dash-post-title {
+  color: white;
+}
+
+.dash-date {
+  text-align: right;
+  vertical-align: middle;
+  margin-top: 0.5rem;
+}
+
+.dash-container {
+  color: white;
+  background-color: gray;
+  border-radius: 5px;
+}
+
+.dash-container:hover {
+  background-color: rgb(187, 184, 184);
+}
+
+.post-button {
+  margin: 3rem;
+  justify-content: center;
+  display: flex;
+}
+
+.comment-btn {
+  margin: 1rem;
+}

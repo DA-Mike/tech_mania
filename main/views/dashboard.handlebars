@@ -1,0 +1,28 @@
+<div class="row mt-4">
+
+  {{#if posts.length}}
+  <div class="col-md-12 post-list">
+    {{!-- <h3>Current Posts:</h3> --}}
+
+    {{#each posts as |post|}}
+    <a class="dash-post-title" href="/api/post/{{post.id}}">
+    <div class="row mb-2 dash-container">
+      <div class="col-md-6 dash-title">
+        <h4>{{post.title}}</h4>
+      </div>
+      <div class="col-md-6 dash-date">
+        <h5>{{format_date post.date_created}}</h5>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+</a>
+<div class="post-button">
+  <p>
+      <a href="/api/newpost"><button class="btn btn-primary">+ New Post</button></a>
+  </p>
+</div>
+
+{{!-- <script src="./js/dashboard.js"></script> --}}

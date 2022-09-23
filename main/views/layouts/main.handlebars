@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Tech Blog!</title>
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="flex-column justify-space-around">
+    <header class="p-2 header-bar">
+      
+      <nav class="nav-bar">
+        <a href="/" class="nav-item">Home</a> 
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/dashboard" class="nav-item">Dashboard</a> 
+        <button class="no-button nav-item" id="logout" class="nav-item">Logout</button>
+        {{else}}
+        <a href="/login" class="nav-item">Login</a>
+        {{/if}}
+      </nav>
+      {{#if dashboard}}
+      <h1 class="title-tag title-text">
+        Your Dashboard
+      </h1>
+      {{else}}
+      <h1 class="title-tag title-text">
+        The Tech Blog
+      </h1>
+      {{/if}}
+    </header>
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  </div>
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+</html>
