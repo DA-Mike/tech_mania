@@ -8,7 +8,7 @@
     </h2>
     </div>
     <div class="col-md-6 author-container">
-    <h5 class="author">Created by {{user.name}} on {{format_date date_created}}</h5>
+    <h5 class="author">Created by {{user.name}} {{user.id}} {{user_id}} on {{format_date date_created}}</h5>
       </div>
     </div>
     <div class="post-text-container">
@@ -16,11 +16,13 @@
     </div>
   </div>
 </div>
+{{#if (is_equal user.id user_id)}}
 <div class="col-md-4 btn-container">
     <button class="btn btn-sm btn-danger edit-btn" data-id={{id}}>Edit Post</button>
     <button class="btn btn-sm btn-danger del-btn" data-id={{id}}>Delete Post</button>
     <button class="btn btn-sm btn-danger save-btn" id="save-btn" data-id={{ id }}>Save</button>
 </div>
+{{/if}}
 
   {{#each comments as |comment|}}
     <div class="comment-container">

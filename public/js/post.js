@@ -53,7 +53,7 @@ const saveButtonHandler = async (event) => {
   $(postText).appendTo(postTextContainer);
 
   $(postText).show();
-  postText.textContent = 'dom test';
+  $(postText).val('dom test');
 
   $(newTextContainer).remove();
 
