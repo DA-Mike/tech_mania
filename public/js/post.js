@@ -89,12 +89,68 @@ const delButtonHandler = async (event) => {
   }
 };
 
-const addCommentHandler = (event) => {
+const addCommentHandler = async (event) => {
   event.preventDefault();
   const commentsEl = document.getElementsByClassName('comments-container');
-  const commentView = $('<div>{{comment}}</div>');
-  $(commentView).appendTo(commentsEl);
-  // $(commentsEl).append(commentView);
+  const $textInput = $(`
+  <div class="col-md-12 new-comment-container">
+    <div class="comment-header"></div>
+    <form class="form new-post-form">
+      <div class="form-group">
+        <label for="post-desc">New Comment:</label>
+        <textarea class="form-input" id="new-comment" name="new-comment"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary create-btn" data-id={{ id }}>
+          Create
+        </button>
+      </div>
+    </form>
+  </div>`);
+  const commentBtn = document.getElementById('comment-btn');
+  $(commentBtn).hide();
+  $($textInput).appendTo(commentsEl);
+};
+
+const createComment = async (event) => {
+  event.preventDefault();
+  const commentBtn = document.getElementById('comment-btn');
+
+  const newCommentText = document.querySelector('#new-comment').val();
+  const newCommentCont = document.querySelector('.new-comment-container');
+  const commentCont = $(`
+    <div class="comment-container">
+      <div class="comment-header"></div>
+      <p class="comment-text"></p>
+      <p class="comment-author">- {{comment.user.name}}, {{format_date comment.date_created}}</p>
+    </div>`);
+  const commentsContainer =
+    document.getElementsByClassName('comments-container');
+  console.log('container:', commentsContainer);
+
+  $(commentCont).appendTo(commentsContainer);
+  const commentText = document.querySelector('.comment-text');
+  commentText[0].textContent = newCommentText;
+  $(newCommentCont).remove();
+
+  $(commentBtn).show();
+
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
+    console.log('id', id);
+    const response = await fetch(`/api/comment/${id}`, {
+      method: 'POST',
+      body: newCommentText,
+    });
+
+    if (response.ok) {
+      document.location.replace(`/api/post/${id}`);
+    } else {
+      alert('Failed to create');
+    }
+  } else {
+    console.log('No data-id');
+  }
 };
 
 document.querySelector('.del-btn').addEventListener('click', delButtonHandler);
@@ -110,3 +166,5 @@ document
 document
   .querySelector('#comment-btn')
   .addEventListener('click', addCommentHandler);
+
+document.querySelector('.create-btn').addEventListener('submit', createComment);

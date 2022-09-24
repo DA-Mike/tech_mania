@@ -162,3 +162,11 @@ body {
 .create-btn {
   margin-left: 2rem;
 }
+
+.new-comment-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid black;
+  width: 100%;
+  padding: 0;
+}
