@@ -23,7 +23,7 @@
     <button class="btn btn-sm btn-danger save-btn" id="save-btn" data-id={{ id }}>Save</button>
 </div>
 {{/if}}
-
+<div class="comments-container">
   {{#each comments as |comment|}}
     <div class="comment-container">
       <div class="comment-header"></div>
@@ -33,7 +33,7 @@
   {{/each}}
   
   <p class="comment-btn">
-    <button class="btn btn-primary">Add Comment</button>
+    <a ><button class="btn btn-primary" id="comment-btn">Add Comment</button></a>
   </p>
 </div>
 

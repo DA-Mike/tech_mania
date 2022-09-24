@@ -14,7 +14,7 @@ router.get('/:id', withAuth, async (req, res) => {
     const comments = commentData.get({ plain: true });
     // res.status(200).json(commentData);
 
-    res.render('post', {
+    res.render('comment', {
       ...comments,
       logged_in: req.session.logged_in,
     });
@@ -23,21 +23,13 @@ router.get('/:id', withAuth, async (req, res) => {
   }
 });
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
-    const commentData = await Comment.findAll();
-    console.log('params:', req.params);
-
-    // const comment = commentData.get({ plain: true });
-
-    // res.render('comment', {
-    //   ...comment,
-    //   logged_in: req.session.logged_in,
-    // });
-    res.status(200).json(commentData);
+    res.render('comment', {
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
-    console.log('error:', err);
   }
 });
 

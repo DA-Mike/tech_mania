@@ -53,7 +53,6 @@ const saveButtonHandler = async (event) => {
   $(postText).appendTo(postTextContainer);
 
   $(postText).show();
-  // $(postText).val('dom test');
   postText[0].textContent = post_text;
 
   $(newTextContainer).remove();
@@ -90,6 +89,14 @@ const delButtonHandler = async (event) => {
   }
 };
 
+const addCommentHandler = (event) => {
+  event.preventDefault();
+  const commentsEl = document.getElementsByClassName('comments-container');
+  const commentView = $('<div>{{comment}}</div>');
+  $(commentView).appendTo(commentsEl);
+  // $(commentsEl).append(commentView);
+};
+
 document.querySelector('.del-btn').addEventListener('click', delButtonHandler);
 
 document
@@ -99,3 +106,7 @@ document
 document
   .querySelector('.save-btn')
   .addEventListener('click', saveButtonHandler);
+
+document
+  .querySelector('#comment-btn')
+  .addEventListener('click', addCommentHandler);

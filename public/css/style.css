@@ -99,12 +99,14 @@ body {
   margin-bottom: 1rem;
   border: 2px solid black;
   width: 100%;
+  padding: 0;
 }
 
 .comment-header {
   height: 3rem;
   background-color: black;
   outline: 2px solid black;
+  padding: 0;
 }
 
 .comment-text {
@@ -155,4 +157,8 @@ body {
 
 .comment-btn {
   margin: 1rem;
+}
+
+.create-btn {
+  margin-left: 2rem;
 }
