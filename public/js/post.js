@@ -98,7 +98,7 @@ const addCommentHandler = async (event) => {
     <form class="form new-post-form">
       <div class="form-group">
         <label for="post-desc">New Comment:</label>
-        <textarea class="form-input" id="new-comment" name="new-comment"></textarea>
+        <textarea type="submit" class="form-input" id="new-comment" name="new-comment"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary create-btn" data-id={{ id }}>
@@ -110,6 +110,7 @@ const addCommentHandler = async (event) => {
   const commentBtn = document.getElementById('comment-btn');
   $(commentBtn).hide();
   $($textInput).appendTo(commentsEl);
+  event.preventDefault();
 };
 
 const createComment = async (event) => {
@@ -140,7 +141,7 @@ const createComment = async (event) => {
     console.log('id', id);
     const response = await fetch(`/api/comment/${id}`, {
       method: 'POST',
-      body: newCommentText,
+      body: JSON.stringify({ newCommentText }),
     });
 
     if (response.ok) {
@@ -151,6 +152,7 @@ const createComment = async (event) => {
   } else {
     console.log('No data-id');
   }
+  event.preventDefault();
 };
 
 document.querySelector('.del-btn').addEventListener('click', delButtonHandler);
@@ -167,4 +169,4 @@ document
   .querySelector('#comment-btn')
   .addEventListener('click', addCommentHandler);
 
-document.querySelector('.create-btn').addEventListener('submit', createComment);
+document.querySelector('.create-btn').addEventListener('click', createComment);
