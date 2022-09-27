@@ -1,5 +1,5 @@
 <div>
-  <div class="row mb-4 post">
+  <div class="row mb-4 post" data-id={{id}}>
   <div class="text-center col-md-12 post-container">
     <div class="row post-title-container">
     <div class="col-md-6">
@@ -32,9 +32,27 @@
     </div>
   {{/each}}
 
-  <p class="comment-btn">
-    <a ><button class="btn btn-primary" id="comment-btn">Add Comment</button></a>
-  </p>
+  <div class="col-md-12 new-comment-container">
+    <div class="comment-header"></div>
+    <form class="form new-post-form">
+      <div class="form-group">
+        <label for="post-desc">New Comment:</label>
+        <textarea type="submit" class="form-input" id="new-comment" name="new-comment"></textarea>
+      </div>
+      <div class="form-group">
+      <button type="submit" class="btn btn-primary create-btn" data-id={{id}}>
+          Create
+        </button>
+      </div>
+    </form>
+  </div>
+
 </div>
+</div>
+<p class="comment-btn">
+    {{!-- <a id="comment-btn"> --}}
+      <button class="btn btn-primary" id="comment-btn" type="button">Add Comment</button>
+      {{!-- </a> --}}
+</p>
 
 <script src="/js/post.js"></script>
