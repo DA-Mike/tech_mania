@@ -22,8 +22,9 @@ This app utilizes node.js, express.js, and sequelize.
 Clone repo and deploy on hosting site.
 
 ## Usage
+[Link to deployed site](https://techmania123.herokuapp.com/ "Tech Mania!")
 
-None.
+![screenshot](./assets/images/screenshot.PNG)
 
 ## Contributing
 ### How to Contribute:
