@@ -66,7 +66,7 @@ const saveButtonHandler = async (event) => {
   if (response.ok) {
     document.location.reload();
   } else {
-    alert('Failed to create post');
+    alert('Failed to edit post');
   }
 };
 
