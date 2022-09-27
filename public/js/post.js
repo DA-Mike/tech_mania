@@ -48,7 +48,6 @@ const saveButtonHandler = async (event) => {
   $(editBtn).show();
 
   const post_text = $(newTextEl).val().toString();
-  console.log('posttext', typeof post_text);
 
   $(postText).appendTo(postTextContainer);
 
