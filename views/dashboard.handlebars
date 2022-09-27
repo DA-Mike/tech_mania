@@ -2,7 +2,6 @@
 
   {{#if posts.length}}
   <div class="col-md-12 post-list">
-    {{!-- <h3>Current Posts:</h3> --}}
 
     {{#each posts as |post|}}
     <a class="dash-post-title" href="/api/post/{{post.id}}">
@@ -24,5 +23,3 @@
       <a href="/api/newpost"><button class="btn btn-primary">+ New Post</button></a>
   </p>
 </div>
-
-{{!-- <script src="./js/dashboard.js"></script> --}}

@@ -1,3 +1,5 @@
+// handlers for post page
+
 const editButtonHandler = async (event) => {
   event.preventDefault();
 
@@ -5,10 +7,8 @@ const editButtonHandler = async (event) => {
   let btnText = document.getElementsByClassName('edit-btn');
   var $textInput = $('<textarea class="form-control new-text"></textarea>');
   var $form = $('<div class="form-group new-text-container"></div>');
-  //   const $btnContainer = document.getElementsByClassName('btn-container');
   const saveBtn = document.getElementById('save-btn');
 
-  //   $($saveBtn).appendTo($btnContainer);
   $(postText).before($form);
   $(postText).remove().appendTo($form).hide();
   $(saveBtn).show();
@@ -65,7 +65,7 @@ const saveButtonHandler = async (event) => {
     },
   });
   if (response.ok) {
-    document.location.reload(); //(`/api/post/${id}`);
+    document.location.reload();
   } else {
     alert('Failed to create post');
   }
@@ -74,7 +74,6 @@ const saveButtonHandler = async (event) => {
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
-    // console.log('id', id);
     const response = await fetch(`/api/post/${id}`, {
       method: 'DELETE',
     });
@@ -117,12 +116,9 @@ const createComment = async (event) => {
       </div>`);
   const commentsContainer =
     document.getElementsByClassName('comments-container');
-  console.log('container:', commentsContainer);
 
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
-    console.log('id', id);
-    console.log('newcomment:', newCommentText);
     const response = await fetch(`/api/comment/${id}`, {
       method: 'POST',
       body: JSON.stringify({ newCommentText }),

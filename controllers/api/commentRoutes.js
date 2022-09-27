@@ -12,7 +12,6 @@ router.get('/:id', withAuth, async (req, res) => {
     console.log('params:', req.params);
 
     const comments = commentData.get({ plain: true });
-    // res.status(200).json(commentData);
 
     res.render('comment', {
       ...comments,
@@ -35,10 +34,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.post('/:postId', withAuth, async (req, res) => {
   try {
-    console.log('body:', req.body);
-
     const newComment = await Comment.create({
-      // ...req.body,
       user_id: req.session.user_id,
       post_id: req.params.postId,
       comment_text: req.body.newCommentText,

@@ -29,46 +29,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/api/post/:id', withAuth, async (req, res) => {
-  // console.log('req.params', req.params);
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name', 'id'],
-        },
-        // },
-        {
-          model: Comment,
-          attributes: [
-            'id',
-            'comment_text',
-            'user_id',
-            'post_id',
-            'date_created',
-          ],
-          include: {
-            model: User,
-            attributes: ['name', 'id'],
-          },
-        },
-      ],
-    });
-
-    const post = postData.get({ plain: true });
-    res.render('post', {
-      ...post,
-      id: req.params.id,
-      logged_in: req.session.logged_in,
-      user_id: req.session.user_id,
-    });
-    // res.status(200).json(postData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // Use withAuth middleware to prevent access to route
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
